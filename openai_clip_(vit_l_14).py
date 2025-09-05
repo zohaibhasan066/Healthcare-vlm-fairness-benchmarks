@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -51,7 +49,7 @@ def stream_and_save_embeddings(batch_size=BATCH_SIZE):
 
     # Count total images
     total_images = sum(len(d) for _, _, d in datasets_all)
-    print(f"✅ Total images combined: {total_images}")
+    print(f"Total images combined: {total_images}")
 
     # Prepare HDF5 file
     with h5py.File(embeddings_path, "w") as f:
@@ -66,7 +64,7 @@ def stream_and_save_embeddings(batch_size=BATCH_SIZE):
             for i in tqdm(range(0, len(ds), batch_size), desc=f"Encoding {subset}-{split}"):
                 batch = ds[i:i+batch_size]
 
-                # ✅ Fix: batch is dict-of-lists, not list-of-dicts
+                # batch is dict-of-lists, not list-of-dicts
                 pil_imgs = batch["image"]
 
                 # GPU encode
@@ -95,8 +93,8 @@ def stream_and_save_embeddings(batch_size=BATCH_SIZE):
     # Save metadata CSV
     pd.DataFrame(metadata_rows).to_csv(metadata_path, index=False)
 
-    print(f"✅ Saved embeddings -> {embeddings_path}")
-    print(f"✅ Saved metadata  -> {metadata_path}")
+    print(f"Saved embeddings -> {embeddings_path}")
+    print(f"Saved metadata  -> {metadata_path}")
 
 def main():
     stream_and_save_embeddings()
@@ -193,7 +191,7 @@ def main():
     # top-100
     top_idx = np.argpartition(-sims, TOP_K-1)[:TOP_K]
     top_idx = top_idx[np.argsort(-sims[top_idx])]
-    print(f"✅ Top {TOP_K} images selected for '{PROFESSION}'")
+    print(f"Top {TOP_K} images selected for '{PROFESSION}'")
 
     rows = []
     for rank, idx in enumerate(top_idx, start=1):
