@@ -17,7 +17,7 @@ Implements streaming preprocessing, embedding extraction, and top-K retrieval an
 - [Model Scripts](#model-scripts)
   - [OpenAI CLIP (ViT-B/16)](./openai_clip_(vit_b_16).py)
   - [OpenAI CLIP (ViT-B/32)](./openai_clip_(vit_b_32).py)
-  - [OpenCLIP (ViT-L/14)](#openclip-vit-l14)
+  - [OpenCLIP (ViT-L/14)](./openai_clip_(vit_l_14).py)
   - [OpenCLIP (ViT-H/14)](./open_clip_(vit_h_14).py)
 - [Code Instructions](#code-instructions)
 - [Typical Workflow](#typical-workflow)
